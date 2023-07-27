@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
@@ -22,16 +23,16 @@
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
-    "swr": "^2.2.0",
     "typescript": "^4.9.5",
-    "uid": "^2.0.2",
-    "web-vitals": "^2.1.4"
+    "uid": "^2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@types/redux-persist": "^4.3.1"
+    "@types/redux-persist": "^4.3.1",
+    "gh-pages": "^5.0.0"
   }
 }
