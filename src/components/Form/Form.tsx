@@ -1,10 +1,13 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
 import {IconButton, InputAdornment, TextField} from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import {StyledFormWrapper} from "./Styles";
+import {useAppDispatch} from "../../redux/hooks";
+import {addTodo} from "../../redux/slices/todosSlice";
+import { uid } from 'uid';
 
 const Form = () => {
   const [value, setValue] = useState('');
+  const dispatch = useAppDispatch();
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -17,17 +20,28 @@ const Form = () => {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (!value.length) {
+      return;
+    }
+
+    const newTodo = {
+      id: uid(),
+      isChecked: false,
+      value,
+    };
+
+    dispatch(addTodo(newTodo));
     onClear();
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <StyledFormWrapper>
         <TextField
           label="Enter todo here"
           value={value}
           onChange={onChange}
           autoFocus
+          autoComplete="off"
           fullWidth
           InputProps={{
             endAdornment: (
@@ -41,7 +55,6 @@ const Form = () => {
             ),
           }}
         />
-      </StyledFormWrapper>
     </form>
   );
 };

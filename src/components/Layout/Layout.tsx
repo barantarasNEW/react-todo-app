@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 const Layout = () => {
   return (
     <CssBaseline>
-      <Header todosLength={6} />
+      <Header />
 
       <main>
         <Outlet />

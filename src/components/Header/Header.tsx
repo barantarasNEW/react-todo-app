@@ -1,15 +1,18 @@
 import {Typography} from "@mui/material";
 import {StyledHeader} from "./Styles";
+import {useAppSelector} from "../../redux/hooks";
+import {useMemo} from "react";
 
-type Props = {
-  todosLength: number;
-};
+const Header = () => {
+  const {todos} = useAppSelector(state => state.todos);
+  const visibleTodos = useMemo(() => {
+    return todos.filter(todo => !todo.isChecked);
+  }, [todos]);
 
-const Header: React.FC<Props> = ({todosLength}) => {
   return (
     <StyledHeader>
       <Typography variant="h4">
-        {`Todos (${todosLength})`}
+        {`Todos (${visibleTodos.length})`}
       </Typography>
     </StyledHeader>
   );
