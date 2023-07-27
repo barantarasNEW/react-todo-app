@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit'
-import todosReducer from './slices/todosSlice';
+import {combineReducers} from "@reduxjs/toolkit";
 import {persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import {combineReducers} from "@reduxjs/toolkit";
+import todosReducer from './slices/todosSlice';
 
 const persistConfig = {
   key: 'root',

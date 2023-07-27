@@ -1,6 +1,5 @@
 import {lazy} from 'react';
 import {Navigate, Route, Routes} from "react-router";
-
 const Layout = lazy(() => import("./components/Layout/Layout"));
 const Todo = lazy(() => import("./pages/Todo/Todo"));
 

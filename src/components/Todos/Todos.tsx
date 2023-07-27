@@ -1,6 +1,6 @@
 import {useAppSelector} from "../../redux/hooks";
-import {StyledList} from "./Styles";
 import Todo from "../Todo/Todo";
+import {StyledList} from "./Styles";
 
 const Todos = () => {
   const {todos} = useAppSelector(state => state.todos);

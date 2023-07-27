@@ -1,15 +1,21 @@
 import {Outlet} from "react-router";
 import {CssBaseline} from "@mui/material";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import {StyledMain, StyledWrapper} from "./Styles";
 
 const Layout = () => {
   return (
     <CssBaseline>
-      <Header />
+      <StyledWrapper>
+        <Header />
 
-      <main>
-        <Outlet />
-      </main>
+        <StyledMain>
+          <Outlet />
+        </StyledMain>
+
+        <Footer />
+      </StyledWrapper>
     </CssBaseline>
   );
 };
